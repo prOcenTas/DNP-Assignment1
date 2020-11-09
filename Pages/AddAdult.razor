@@ -63,9 +63,9 @@
 @code {
     private Adult newAdult=new Adult();
 
-    private void AddNewAdult()
+    private async Task AddNewAdult()
     {
-        Service.AddAdult(newAdult);
+        await Service.AddAdultAsync(newAdult);
         NavigationManager.NavigateTo("/ViewAdult");
     }
 }
