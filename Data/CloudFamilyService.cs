@@ -14,7 +14,7 @@ namespace Assignment1.Cloud
         public async Task<IList<Adult>> GetAdultsAsync()
         {
             HttpClient client = new HttpClient();
-            string message = await client.GetStringAsync("http://dnp.metamate.me/");
+            string message = await client.GetStringAsync("http://dnp.metamate.me/Adults");
             List<Adult> result = JsonSerializer.Deserialize<List<Adult>>(message);
             return result;
         }
@@ -26,14 +26,14 @@ namespace Assignment1.Cloud
             HttpContent content = new StringContent(adultAsJson,
                 Encoding.UTF8,
                 "application/json");
-            await client.PostAsync("http://dnp.metamate.me/", content);
+            await client.PostAsync("http://dnp.metamate.me/Adults", content);
             
         }
 
         public async Task RemoveAdultAsync(Adult adult)
         {
             HttpClient client = new HttpClient();
-            await client.DeleteAsync($"{"http://dnp.metamate.me/"}/todos/{adult.Id}");
+            await client.DeleteAsync($"{"http://dnp.metamate.me/Adults"}/todos/{adult.Id}");
         }
 
         public async Task UpdateAsync(Adult adult)
@@ -43,7 +43,7 @@ namespace Assignment1.Cloud
             HttpContent content = new StringContent(adultAsJson,
                 Encoding.UTF8,
                 "application/json");
-            await client.PatchAsync($"{"http://dnp.metamate.me/"}/todos/{adult.Id}", content);
+            await client.PatchAsync($"{"http://dnp.metamate.me/Adults"}/todos/{adult.Id}", content);
         }
     }
-}
+}    
