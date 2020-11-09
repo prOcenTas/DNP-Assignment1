@@ -2,26 +2,52 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text.Json.Serialization;
 
 namespace Models {
 public class Person {
     
+    [JsonPropertyName("id")]
     public int Id { get; set; }
+    
+    
     [NotNull]
+    [JsonPropertyName("firstName")]
     public string FirstName { get; set; }
+    
+    
     [NotNull]
+    [JsonPropertyName("lastName")]
     public string LastName { get; set; }
+    
+    
     [ValidHairColor]
+    [JsonPropertyName("hairColor")]
     public string HairColor { get; set; }
+    
+    
     [NotNull]
+    [JsonPropertyName("eyeColor")]
     [ValidEyeColor]
     public string EyeColor { get; set; }
+    
+    
     [NotNull, Range(0, 125)]
+    [JsonPropertyName("age")]
     public int Age { get; set; }
+    
+    
+    [JsonPropertyName("weight")]
     [NotNull, Range(1, 250)]
     public float Weight { get; set; }
+    
+    
+    [JsonPropertyName("height")]
     [NotNull, Range(30, 250)]
     public int Height { get; set; }
+    
+    
+    [JsonPropertyName("sex")]
     [NotNull]
     public string Sex { get; set; }
 
