@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Models;
 
 namespace Assignment1.Data
@@ -34,20 +35,20 @@ namespace Assignment1.Data
         }
 
 
-        public IList<Adult> GetAdults()
+        public async Task<IList<Adult>> GetAdultsAsync()
         {
             List<Adult> tmp=new List<Adult>(Adults);
             return tmp;
         }
 
-        public void AddAdult(Adult adult)
+        public async Task AddAdultAsync(Adult adult)
         {
             
             Adults.Add(adult);
             SaveChanges();
         }
 
-        public void RemoveAdult(Adult adult)
+        public async Task RemoveAdultAsync(Adult adult)
         {
 
             Adult toRemove = Adults.First(t => t.Id == adult.Id);
@@ -55,7 +56,7 @@ namespace Assignment1.Data
             SaveChanges();
         }
 
-        public void Update(Adult adult)
+        public async Task UpdateAsync(Adult adult)
         {
             Adult toUpdate = Adults.First(t => t.Id == adult.Id);
             toUpdate.Update(adult);

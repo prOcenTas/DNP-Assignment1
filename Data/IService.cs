@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Models;
 
 namespace Assignment1.Data
 {
     public interface IService
     {
-        IList<Adult> GetAdults();
+        Task<IList<Adult>> GetAdultsAsync();
 
-        void AddAdult(Adult adult);
+        Task AddAdultAsync(Adult adult);
 
-        void RemoveAdult(Adult adult);
+        Task RemoveAdultAsync(Adult adult);
 
-        void Update(Adult adult);
+        Task UpdateAsync(Adult adult);
     }
 }
